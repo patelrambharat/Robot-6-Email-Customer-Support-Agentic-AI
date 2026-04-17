@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="3eca7032">
+  <bpmn:process id="Process_1" name="Process" isExecutable="false">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1">
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_NN6OEb"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="content" name="content" type="string" elementId="Activity_NN6OEb" />
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_tKS5xt"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="id" name="id" type="string" elementId="Activity_tKS5xt" />
+        <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_tKS5xt"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"threadId":{"title":"Email thread identifier","type":"string","description":"Unique identifier for the email conversation thread."},"labelIds[*]":{"title":"Label identifiers","type":"string","description":"Unique identifiers for the labels associated with the email."},"id":{"title":"Email identifier","type":"string","description":"A unique identifier for the email message."}},"definitions":{}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Event_start"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="response" name="response" type="jsonSchema" elementId="Event_start"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"},"ID":{"title":"Id","type":"string"},"Body":{"title":"Body","type":"string"}},"definitions":{"Attachments[*]":{"type":"object","properties":{"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"},"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"}}},"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Email":{"title":"Cc","type":"string"},"Name":{"title":"Cc name","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}},"To[*]":{"type":"object","properties":{"Email":{"title":"To","type":"string"},"Name":{"title":"Recipient name","type":"string"}}},"From":{"type":"object","properties":{"Email":{"title":"From","type":"string"},"Name":{"title":"Sender name","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error4" name="Error" type="jsonSchema" elementId="Activity_WCxQAh"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="id2" name="id" type="string" elementId="Activity_WCxQAh" />
+        <uipath:inputOutput id="response3" name="response" type="jsonSchema" elementId="Activity_WCxQAh"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"threadId":{"title":"Email thread identifier","type":"string","description":"A unique identifier for the email thread."},"labelIds[*]":{"title":"Email label identifiers","type":"string","description":"A list of identifiers for labels associated with the email."},"id":{"title":"Email ID","type":"string","description":"A unique identifier for the specific email message."}},"definitions":{}}]]></uipath:inputOutput>
+      </uipath:variables>
+      <uipath:bindings version="v1">
+        <uipath:binding id="bc4OytsRm" name="uipath-google-gmail connection" type="string" default="59910d8d-93e8-49d0-bede-2d6849c9954f" resource="Connection" resourceKey="59910d8d-93e8-49d0-bede-2d6849c9954f" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bJ4r8ekuv" name="FolderKey" type="string" default="a8992c43-5b58-4751-9529-c691e784c2ca" resource="Connection" resourceKey="59910d8d-93e8-49d0-bede-2d6849c9954f" propertyAttribute="folderKey" />
+        <uipath:binding id="b1wLTLxiB" name="uipath-google-gmail connection" type="string" default="e43f5801-28ea-49f5-93d2-447879039828" resource="Connection" resourceKey="e43f5801-28ea-49f5-93d2-447879039828" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bYmBnDqkG" name="FolderKey" type="string" default="a8992c43-5b58-4751-9529-c691e784c2ca" resource="Connection" resourceKey="e43f5801-28ea-49f5-93d2-447879039828" propertyAttribute="folderKey" />
+        <uipath:binding id="b5zIBzQ2i" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="UiPath Eugene" propertyAttribute="folderPath" />
+        <uipath:binding id="bGU9phtu2" name="name" type="string" default="UiPath Eugene" resource="process" resourceSubType="Agent" resourceKey="UiPath Eugene" propertyAttribute="name" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="13" />
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_start" name="Start event">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="3d99e3ee-4da6-4fd1-a21d-ea2a74a2fd94" />
+        <uipath:event version="v1">
+          <uipath:type value="Intsvc.EventTrigger" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="operation" type="string" value="EMAIL_RECEIVED" />
+            <uipath:input name="objectName" type="string" value="Message" />
+            <uipath:input name="connection" type="string" value="=bindings.b1wLTLxiB" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bYmBnDqkG" />
+            <uipath:input name="resourceKey" type="string" value="e43f5801-28ea-49f5-93d2-447879039828" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-gmail/image","activityDisplayName":"Email Received","activityDescription":"Triggers when an email is received in your inbox.","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Email-Received","activityConfig":{"isCurated":true,"operation":"EMAIL_RECEIVED"},"triggerActivity":{"eventFields":{"ParentFolders[*].ID":"INBOX"},"filterBuilder":{"expression":"(contains(Subject, 'UiPath') || contains(Body, 'Ask Ram to reply') || contains(Body, 'ask Ram to reply') || contains(Body, 'Ask ram to reply'))"}},"designTimeLookups":{"ParentFolders[*].ID":[{"id":"INBOX","title":"Inbox"}]}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"},"ID":{"title":"Id","type":"string"},"Body":{"title":"Body","type":"string"}},"definitions":{"Attachments[*]":{"type":"object","properties":{"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"},"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"}}},"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Email":{"title":"Cc","type":"string"},"Name":{"title":"Cc name","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}},"To[*]":{"type":"object","properties":{"Email":{"title":"To","type":"string"},"Name":{"title":"Recipient name","type":"string"}}},"From":{"type":"object","properties":{"Email":{"title":"From","type":"string"},"Name":{"title":"Sender name","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}}}}},"telemetryData":{"operation":"EMAIL_RECEIVED","objectName":"Message","connectorKey":"uipath-google-gmail","connectorName":"Gmail","primaryKeyName":""},"inputMetadata":{},"errorState":{"hasError":false},"bindings":[{"resource":"Property","key":"EMAIL_RECEIVED","value":{"ParentFolders[*].ID":{"defaultValue":"INBOX","isExpression":false}},"metadata":{"TriggerCreateParameters":"ParentFolders[*].ID","DebugQueryParameters":"ParentFolders[*].ID","BindingsVersion":"2.2","ObjectName":"Message"}}]}]]></uipath:input>
+          </uipath:context>
+          <uipath:input name="body" type="json" target="body"><![CDATA[{"filters":{"expression":"(ParentFolders[?ID == 'INBOX']) && ((contains(Subject, 'UiPath') || contains(Body, 'Ask Ram to reply') || contains(Body, 'ask Ram to reply') || contains(Body, 'Ask ram to reply')))","variables":{}}}]]></uipath:input>
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error" />
+        </uipath:event>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge_jScmyl</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_NN6OEb" name="Answer the question">
+      <bpmn:documentation>UiPath answer the question UiPath Eugene Technical UiPath Question</bpmn:documentation>
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bGU9phtu2" />
+            <uipath:input name="folderPath" type="string" value="=bindings.b5zIBzQ2i" />
+            <uipath:input name="_label" type="string" value="UiPath Eugene" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"sender_name":{"type":"string"},"sender_email":{"type":"string"},"email_subject":{"type":"string"},"email_body":{"type":"string"},"email_id":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"sender_name":"=vars.response.From.Name","sender_email":"=vars.response.From.Email","email_subject":"=vars.response.Subject","email_body":"=vars.response.Body","email_id":"=vars.response.ID"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
+          <uipath:output name="content" type="string" source="=content" var="content" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_PIt2Op</bpmn:incoming>
+      <bpmn:outgoing>edge_VW4xRZ</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Activity_tKS5xt" name="Reply to the mail">
+      <bpmn:documentation>Email gets send with Eugene's agent</bpmn:documentation>
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="connection" type="string" value="=bindings.b1wLTLxiB" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bYmBnDqkG" />
+            <uipath:input name="resourceKey" type="string" value="e43f5801-28ea-49f5-93d2-447879039828" />
+            <uipath:input name="operation" type="string" value="ReplyToEmailV2" />
+            <uipath:input name="objectName" type="string" value="EmailReply" />
+            <uipath:input name="method" type="string" value="POST" />
+            <uipath:input name="path" type="string" value="/EmailReply" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-gmail/image","activityDesignerVersion":"2","activityDisplayName":"Reply to Email","activityDescription":"Sends a reply to an email based on email ID","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Reply-To-Email","activityConfig":{"isCurated":true,"operation":null}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"threadId":{"title":"Email thread identifier","type":"string","description":"Unique identifier for the email conversation thread."},"labelIds[*]":{"title":"Label identifiers","type":"string","description":"Unique identifiers for the labels associated with the email."},"id":{"title":"Email identifier","type":"string","description":"A unique identifier for the email message."}},"definitions":{}}},"telemetryData":{"operationType":"Create","objectName":"EmailReply","objectDisplayName":"Email Reply","connectorKey":"uipath-google-gmail","connectorName":"Gmail","primaryKeyName":"id"},"inputMetadata":{"type":"multipart","multipart":{"bodyFieldName":"body"}},"errorState":{"hasError":false},"bindings":[]}]]></uipath:input>
+          </uipath:context>
+          <uipath:input name="replyToAll" type="string" value="true" target="query" />
+          <uipath:input name="saveAsDraft" type="string" value="false" target="query" />
+          <uipath:input name="id" type="string" value="=vars.response.ID" target="query" />
+          <uipath:input name="body" type="json" target="body"><![CDATA[{"importance":"normal","body":"=vars.content.Replace(\". \",\".<br><br>\") ","subject":"=vars.response.Subject"}]]></uipath:input>
+          <uipath:output name="id" type="string" source="=response.id" var="id" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response2" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_VW4xRZ</bpmn:incoming>
+      <bpmn:outgoing>edge_jDpSqC</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_4gKHB2" name="who must reply?" default="edge_PIt2Op">
+      <bpmn:incoming>edge_jScmyl</bpmn:incoming>
+      <bpmn:outgoing>edge_PIt2Op</bpmn:outgoing>
+      <bpmn:outgoing>edge_Zs162I</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Activity_WCxQAh" name="Forward Email to Ram">
+      <bpmn:documentation>Student requested to Ram to reply</bpmn:documentation>
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="connection" type="string" value="=bindings.b1wLTLxiB" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bYmBnDqkG" />
+            <uipath:input name="resourceKey" type="string" value="e43f5801-28ea-49f5-93d2-447879039828" />
+            <uipath:input name="operation" type="string" value="ForwardMailV2" />
+            <uipath:input name="objectName" type="string" value="ForwardMailV2" />
+            <uipath:input name="method" type="string" value="POST" />
+            <uipath:input name="path" type="string" value="/ForwardMailV2" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-gmail/image","activityDesignerVersion":"2","activityDisplayName":"Forward Email","activityDescription":"Forwards an email in Gmail to another recipient","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Forward-Email","activityConfig":{"isCurated":true,"operation":null}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"threadId":{"title":"Email thread identifier","type":"string","description":"A unique identifier for the email thread."},"labelIds[*]":{"title":"Email label identifiers","type":"string","description":"A list of identifiers for labels associated with the email."},"id":{"title":"Email ID","type":"string","description":"A unique identifier for the specific email message."}},"definitions":{}}},"telemetryData":{"operationType":"Create","objectName":"ForwardMailV2","objectDisplayName":"Email","connectorKey":"uipath-google-gmail","connectorName":"Gmail","primaryKeyName":"id"},"inputMetadata":{"type":"multipart","multipart":{"bodyFieldName":"body"}},"errorState":{"hasError":false},"bindings":[]}]]></uipath:input>
+          </uipath:context>
+          <uipath:input name="saveAsDraft" type="string" value="false" target="query" />
+          <uipath:input name="id" type="string" value="=vars.id" target="query" />
+          <uipath:input name="body" type="json" target="body"><![CDATA[{"to":"patelmmmut12497@gmail.com","body":"<p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">\"Hi Ram please reply as requested by students.\"</span></p><p class=\"editor-paragraph\" dir=\"ltr\"><br></p><p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Regards,</span></p><p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Eugene</span></p>"}]]></uipath:input>
+          <uipath:output name="id" type="string" source="=response.id" var="id2" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response3" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error4" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Zs162I</bpmn:incoming>
+      <bpmn:outgoing>edge_hWpaQl</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="Event_OVZoBF">
+      <bpmn:incoming>edge_hWpaQl</bpmn:incoming>
+      <bpmn:incoming>edge_jDpSqC</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="edge_VW4xRZ" sourceRef="Activity_NN6OEb" targetRef="Activity_tKS5xt" />
+    <bpmn:sequenceFlow id="edge_jScmyl" sourceRef="Event_start" targetRef="Gateway_4gKHB2" />
+    <bpmn:sequenceFlow id="edge_PIt2Op" name="Eugene must reply" sourceRef="Gateway_4gKHB2" targetRef="Activity_NN6OEb" />
+    <bpmn:sequenceFlow id="edge_Zs162I" name="Ram must reply" sourceRef="Gateway_4gKHB2" targetRef="Activity_WCxQAh">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.response.Body.Contains("Ask Ram to reply")</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_hWpaQl" sourceRef="Activity_WCxQAh" targetRef="Event_OVZoBF" />
+    <bpmn:sequenceFlow id="edge_jDpSqC" sourceRef="Activity_tKS5xt" targetRef="Event_OVZoBF" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Event_start" bpmnElement="Event_start">
+        <dc:Bounds x="260" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="260" y="241" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_NN6OEb" bpmnElement="Activity_NN6OEb">
+        <dc:Bounds x="491.27313232421875" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="491.27313232421875" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_tKS5xt" bpmnElement="Activity_tKS5xt">
+        <dc:Bounds x="649.0509240735224" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="649.0509240735224" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_4gKHB2" bpmnElement="Gateway_4gKHB2">
+        <dc:Bounds x="376.21294273564934" y="193" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="376.21294273564934" y="248" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_WCxQAh" bpmnElement="Activity_WCxQAh">
+        <dc:Bounds x="351.21294273564934" y="313.1203705352033" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="351.21294273564934" y="398.1203705352033" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_OVZoBF" bpmnElement="Event_OVZoBF">
+        <dc:Bounds x="777.2129427356493" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="777.2129427356493" y="241" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_VW4xRZ" bpmnElement="edge_VW4xRZ">
+        <di:waypoint x="591.2731323242188" y="218" />
+        <di:waypoint x="649.0509240735224" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_jScmyl" bpmnElement="edge_jScmyl">
+        <di:waypoint x="296" y="218" />
+        <di:waypoint x="376.21294273564934" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_PIt2Op" bpmnElement="edge_PIt2Op">
+        <di:waypoint x="426.21294273564934" y="218" />
+        <di:waypoint x="491.27313232421875" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Zs162I" bpmnElement="edge_Zs162I">
+        <di:waypoint x="401.21294273564934" y="243" />
+        <di:waypoint x="401.21294273564934" y="313.1203705352033" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_hWpaQl" bpmnElement="edge_hWpaQl">
+        <di:waypoint x="451.21294273564934" y="353.1203705352033" />
+        <di:waypoint x="795.2129427356493" y="353.1203705352033" />
+        <di:waypoint x="795.2129427356493" y="236" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_jDpSqC" bpmnElement="edge_jDpSqC">
+        <di:waypoint x="749.0509240735224" y="218" />
+        <di:waypoint x="777.2129427356493" y="218" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
